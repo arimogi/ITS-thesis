@@ -1,14 +1,24 @@
 
 \documentclass[12pt, a4paper, openright]{scrbook}
+
 \usepackage{itsthesis}
 
 \input{setting}
 
 \begin{document}
 
+\include{sampul}
+
+\pagenumbering{roman}
+
+\include{judul_dalam}
+
+\include{lembar_pengesahan}
+
+\setcounter{page}{2}
+
 \addChapter{ABSTRAK}
 \include{abstrak}
-\addChapter{ABSTRACT}
 \include{abstract}
 
 \tableofcontents
