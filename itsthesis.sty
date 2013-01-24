@@ -67,7 +67,8 @@
 % 
 \usepackage{url}
   \urlstyle{same}
-  
+
+\usepackage{multicol}
 % 
 %  Agar tabel bisa menggunakan rowspan atau colspan. 
 % 
@@ -197,6 +198,31 @@
 % Perintah Baru
 %-----------------------------------------------------------------------------%
 
+\newcommand*{\leftblankpage}{%
+    \vspace*{\fill}
+    \begin{center}
+        \f{Halaman ini sengaja dikosongkan.}
+    \end{center}
+    \vspace{\fill}}
+    \makeatletter
+\renewcommand*{\cleardoublepage}{
+    \clearpage\if@twoside 
+    \ifodd\c@page
+    \else
+    \leftblankpage
+    \thispagestyle{empty}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi
+}
+\makeatother
+
+\newcommand{\blankpage}{
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    \newpage
+}
+
 % 
 % Perintah untuk membuat huruf tecetak miring. (alias)
 \newcommand{\f}[1]{\textit{#1}}
@@ -268,7 +294,7 @@
 %-----------------------------------------------------------------------------%
 %
 % Beberapa istilah yang tepat untuk digunakan dalam laporan.
-\renewcommand{\bibname}{Daftar Referensi}
+\renewcommand{\bibname}{Daftar Pustaka}
 % 
 % 
 \renewcommand{\contentsname}{Daftar Isi}
